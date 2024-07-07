@@ -5,7 +5,7 @@ import { QRCodeScanner } from 'expo-vision-camera';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
-const API_URL = 'http://localhost:8000/api/students'; // Replace with your API URL
+const API_URL = 'http://localhost:8000/api/etudiants'; 
 
 const ScannerScreen = () => {
   const [hasPermission, requestPermission] = usePermissions(Camera.Permissions);
