@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LogInScreen, ProfileScreen } from '../screens';
-import { AuthContext } from './AuthContext'; // Import AuthContext
+import { AuthContext } from './AuthContext'; 
 
 const Stack = createStackNavigator();
 

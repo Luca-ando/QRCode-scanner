@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthContext } from './AuthContext';
-import { DrawerNavigator } from './DrawerNavigator';
-import { AuthNavigator } from './AuthNavigator';
+import { AuthContext } from './AuthContext'; // Import AuthContext
 
-const RootNavigator = () => {
-  const { isLoggedIn } = React.useContext(AuthContext);
+import AuthNavigator from './AuthNavigator';
+import BottomTabNavigator from './BottomTabNavigator';
+import DrawerNavigator from './DrawerNavigator';
+import ProfileStackNavigator from './ProfileStackNavigator';
+
+const Navigation = () => {
+  const { isLoggedIn } = useContext(AuthContext); 
 
   return (
     <NavigationContainer>
       {isLoggedIn ? (
-        <DrawerNavigator />
+        <>
+          {/* Render DrawerNavigator et ProfileStackNavigator pour les utilisateurs connectés */}
+          <DrawerNavigator />
+          <ProfileStackNavigator />
+        </>
       ) : (
-        <AuthNavigator />
+        <>
+          {/* Render both AuthNavigator et BottomTabNavigator pour les utilisateurs non-connectés  */}
+          <AuthNavigator />
+          <BottomTabNavigator />
+        </>
       )}
     </NavigationContainer>
   );
 };
 
-export default RootNavigator;
+export default Navigation;

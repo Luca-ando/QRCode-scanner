@@ -2,6 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ProfileScreen, JournalLogScreen } from '../screens';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { logout } from './auth';
 
 const Drawer = createDrawerNavigator();
 
@@ -49,7 +50,7 @@ const DrawerNavigator = () => {
           <MaterialCommunityIcons name="logout" color={color} size={size} />
         )}
         onPress={async () => {
-          await AsyncStorage.clear(); // Clear storage for logout
+          await logout(); //Appel de fonction de auth.js
           navigation.navigate('LogInScreen'); // Navigate to login screen
         }}
       />

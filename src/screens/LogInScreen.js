@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 import CustomButton from './components/CustomButton';
 import { login } from './api/auth'; 
-
-const LOGIN_URL = 'http://127.0.0.1:8000/token'; 
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -34,6 +32,7 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Nom utilisateur"
         onChangeText={setUsername}
         value={username}
+        autoCapitalize="none"
       />
       <TextInput
         style={styles.input}

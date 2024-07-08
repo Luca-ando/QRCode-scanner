@@ -1,7 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ProfileScreen, AddStudentScreen, EditStudentScreen } from '../screens';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
@@ -26,27 +25,18 @@ const ProfileStackNavigator = () => {
         options={{
           headerTitle: 'Mon profil',
           headerLeft: () => null, // Supprimer le bouton de retour par défaut
-          headerRight: () => (
-            <MaterialCommunityIcons
-              name="pencil"
-              color="#fff"
-              size={24}
-              style={{ marginRight: 15 }}
-              onPress={() => navigation.navigate('EditStudentScreen')}
-            />
-          ),
         }}
       />
       <Stack.Screen
-        name="AddStudentScreen"
-        component={AddStudentScreen}
+        name="AddScreen"
+        component={AddScreen}
         options={{
           headerTitle: 'Ajouter un étudiant',
         }}
       />
       <Stack.Screen
-        name="EditStudentScreen"
-        component={EditStudentScreen}
+        name="EditScreen"
+        component={EditScreen}
         options={{
           headerTitle: 'Modifier un étudiant',
         }}
